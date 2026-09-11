@@ -95,7 +95,7 @@ UNITS = [
         "address": "Rua Agudos do Sul, 40 — Sítio Cercado, Curitiba/PR",
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
         "doctor": "Dra. Barbara Hauser Novicki", "cro": "CRO/PR 22234 · CLM/PR 1695",
-        "img": img("clinica_ampla", 1000, 800),
+        "img": "images/unidade-sitio-cercado.webp",
         "maps_q": "Rua+Agudos+do+Sul,+40,+Sitio+Cercado,+Curitiba,+PR",
     },
     {
@@ -104,7 +104,7 @@ UNITS = [
         "address": "Av. Iraí, 1632 — loja 2 — Weissópolis, Pinhais/PR",
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
         "doctor": "Dr. Mário Hayashi Junior", "cro": "CRO/PR 17908",
-        "img": img("clinica_vista", 1000, 800),
+        "img": "images/unidade-pinhais.webp",
         "maps_q": "Av.+Irai,+1632,+Weissopolis,+Pinhais,+PR",
     },
     {
@@ -113,7 +113,7 @@ UNITS = [
         "address": "Av. Margarida de Araújo Franco, 2008 — Carioca, SJP/PR",
         "phone_display": PHONE_SJP_DISPLAY, "phone_tel": PHONE_SJP_TEL,
         "doctor": "Dra. Rafaela Bueno Silva", "cro": "CRO/PR 32974 · CFL 1953",
-        "img": img("clinica_vermelha", 1000, 800),
+        "img": "images/unidade-sjp.webp",
         "maps_q": "Av.+Margarida+de+Araujo+Franco,+2008,+Sao+Jose+dos+Pinhais,+PR",
     },
 ]
@@ -383,11 +383,15 @@ def organization_ld():
     }
 
 
+def abs_url(path):
+    return path if path.startswith("http") else f"{BASE_URL}/{path}"
+
+
 def unit_ld(u):
     return {
         "@type": "Dentist",
         "name": f"{SITE_NAME} — {u['name']}",
-        "image": u["img"],
+        "image": abs_url(u["img"]),
         "telephone": u["phone_tel"],
         "priceRange": "$$",
         "address": {

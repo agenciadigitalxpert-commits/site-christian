@@ -184,11 +184,11 @@ def build_home():
 
 def build_sobre():
     galeria = "\n".join(f'''        <div class="frame" style="aspect-ratio:1/1; border-radius:var(--radius-m); overflow:hidden;" data-reveal="scale">
-          <img src="{img(key, 800, 800)}" alt="{alt}" width="800" height="800" loading="lazy">
-        </div>''' for key, alt in [
-        ("clinica_azul", "Consultório claro e moderno do Instituto Christian Andrade"),
-        ("clinica_ampla", "Sala de atendimento com equipamentos de alta tecnologia"),
-        ("clinica_vista", "Ambiente amplo e iluminado de uma das unidades"),
+          <img src="{src}" alt="{alt}" width="800" height="800" loading="lazy">
+        </div>''' for src, alt in [
+        ("images/consultorio-interno-square.webp", "Sala de atendimento do Instituto Christian Andrade"),
+        (img("clinica_ampla", 800, 800), "Sala de atendimento com equipamentos de alta tecnologia"),
+        (img("clinica_vista", 800, 800), "Ambiente amplo e iluminado de uma das unidades"),
     ])
 
     body = f'''  <section class="page-hero">
