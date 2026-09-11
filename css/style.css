@@ -309,25 +309,26 @@ p{ margin: 0 0 1em; max-width: 62ch; }
 .hero-media .frame img{ width:100%; height:100%; object-fit:cover; transition: transform 1.2s var(--ease); }
 .hero-media:hover .frame img{ transform: scale(1.045); }
 
-.hero-cutout{ display:flex; justify-content:flex-end; }
+.hero-media{ padding-top: 4.5em; }
+.hero-cutout{ position:relative; display:flex; justify-content:center; }
 .hero-cutout img{
-  width:100%; max-width:420px; height:auto; display:block;
+  width:100%; max-width:520px; height:auto; display:block;
   filter: drop-shadow(0 26px 34px rgba(15,33,27,.16));
   transition: transform 1.2s var(--ease);
 }
 .hero-media:hover .hero-cutout img{ transform: translateY(-4px); }
 .hero-badge{
-  position:absolute; right: 105px; bottom: -2.2em;
+  position:absolute; left: 4%; bottom: 100%; margin-bottom: 1em;
   background: var(--white); border: 1px solid var(--line);
   padding: 1.1em 1.3em; border-radius: var(--radius-m);
   box-shadow: var(--shadow-lg);
-  max-width: 210px; text-align:left;
+  max-width: 220px; text-align:left;
   animation: float 5s ease-in-out infinite;
 }
 .hero-badge strong{ font-family: var(--f-display); font-size: 1.3rem; color: var(--gold-deep); }
 .hero-badge p{ margin:.25em 0 0; font-size: .78rem; color: var(--ink-60); }
 .hero-chip{
-  position:absolute; top: 1.6em; right: -1em; background: var(--teal-deep); color:var(--white);
+  position:absolute; bottom: 100%; margin-bottom: 1em; right: 4%; background: var(--teal-deep); color:var(--white);
   padding: .7em 1.1em; border-radius: 100px; font-size: .78rem; font-weight:600;
   box-shadow: var(--shadow-md); display:flex; align-items:center; gap:.5em;
   animation: float 6s ease-in-out infinite 1s;
@@ -337,12 +338,12 @@ p{ margin: 0 0 1em; max-width: 62ch; }
 
 @media (max-width: 980px){
   .hero .wrap{ grid-template-columns: 1fr; }
-  .hero-media{ order:-1; max-width:420px; width:100%; margin:0 auto 6.5em; }
-  .hero-cutout img{ max-width:260px; }
-  .hero-badge{ right: 50px; bottom:-2em; max-width: 170px; padding: 1em 1.1em; }
+  .hero-media{ order:-1; max-width:460px; width:100%; margin:0 auto; padding-top: 6.5em; }
+  .hero-cutout img{ max-width:340px; }
+  .hero-badge{ left: 0; max-width: 178px; padding: 1em 1.1em; }
   .hero-badge strong{ font-size: 1.15rem; }
   .hero-badge p{ font-size: .74rem; }
-  .hero-chip{ right: .5em; }
+  .hero-chip{ right: 0; }
 }
 
 /* ---------- seções genéricas ---------- */
