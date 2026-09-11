@@ -118,13 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     scrim && scrim.addEventListener('click', closeNav);
   }
 
-  /* ---------- link ativo do menu ---------- */
-  const path = (window.location.pathname.split('/').pop() || 'index.html');
-  document.querySelectorAll('.main-nav a[href]').forEach(link => {
-    const href = link.getAttribute('href').split('/').pop();
-    if (href === path) link.classList.add('active');
-  });
-
   /* ---------- header: encolher ao rolar ---------- */
   const header = document.querySelector('.site-header');
   const backToTop = document.querySelector('.back-to-top');

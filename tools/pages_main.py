@@ -62,12 +62,10 @@ def build_home():
       </div>
       <div class="hero-media" data-reveal="right">
         <div class="hero-cutout">
-          <img src="images/christian-andrade.webp" alt="Dr. Christian Andrade" width="1200" height="1326" loading="eager" fetchpriority="high">
-          <div class="hero-badge">
-            <strong>Garantia vitalícia</strong>
-            <p>em implantes Grand Morse Neodent, com carga imediata e cirurgia sem corte.</p>
+          <div class="hero-photo">
+            <img src="images/christian-andrade.webp" alt="Dr. Christian Andrade" width="1200" height="1326" loading="eager" fetchpriority="high">
+            <div class="hero-ribbon">Número 1 em Implantes Neodent do Brasil &middot; Garantia Vitalícia</div>
           </div>
-          <div class="hero-chip"><span class="dot"></span> Atendimento humanizado</div>
         </div>
       </div>
     </div>

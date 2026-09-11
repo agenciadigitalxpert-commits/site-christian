@@ -228,10 +228,8 @@ def faq_block(items):
     return '\n' + '\n'.join(rows) + '\n      '
 
 
-def logo_mark():
-    return ('<svg class="logo-mark" width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">'
-            '<path d="M12 2C8.5 2 6 4 6 7.3c0 2.2.7 3.1 1.1 5.4.4 2.4.5 6.8 2 8.9.5.7 1 .9 1.4.9.9 0 1.2-1 1.4-2.6.2-1.6.3-3.8 1-3.8s.8 2.2 1 3.8c.2 1.6.5 2.6 1.4 2.6.4 0 .9-.2 1.4-.9 1.5-2.1 1.6-6.5 2-8.9C18.3 10.4 19 9.5 19 7.3 19 4 16.5 2 13 2c-.4 0-.7.6-1 .6S12.4 2 12 2z" '
-            'stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>')
+def logo_mark(root=""):
+    return f'<img class="logo-mark" src="{root}images/tooth-mark.webp" alt="" width="20" height="22" aria-hidden="true">'
 
 
 def topbar(root):
@@ -257,9 +255,10 @@ def header(root, active):
     )
     return f'''<header class="site-header">
   <div class="wrap">
-    <a href="{root}index.html" class="logo">{logo_mark()} Christian Andrade <span>Odontologia</span></a>
+    <a href="{root}index.html" class="logo">{logo_mark(root)} Christian Andrade <span>Odontologia</span></a>
     <nav class="main-nav" id="main-nav">
       {nav_links}
+      <a class="btn btn-gold btn-sm nav-cta-mobile" href="{WA_DEFAULT}" target="_blank" rel="noopener">Agendar avaliação</a>
     </nav>
     <div class="nav-cta">
       <span class="nav-phone">{PHONE_DISPLAY}</span>
@@ -282,7 +281,7 @@ def footer(root):
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">{logo_mark()} Christian Andrade</div>
+        <div class="footer-logo">{logo_mark(root)} Christian Andrade</div>
         <p>Instituto Odontológico com 4 unidades em Curitiba e região, atuando desde 2005 em odontologia e harmonização orofacial. O branco da porcelana e a confiança clínica guiam cada atendimento.</p>
         <div class="footer-social">
           <a href="{WA_DEFAULT}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z" fill="#fff"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z" fill="#fff"/></svg></a>
@@ -341,7 +340,7 @@ def lp_header(root):
     sem links de saída — só marca e telefone, para não competir com o CTA."""
     return f'''<header class="lp-header">
   <div class="wrap">
-    <span class="logo">{logo_mark()} Christian Andrade <span>Odontologia</span></span>
+    <span class="logo">{logo_mark(root)} Christian Andrade <span>Odontologia</span></span>
     <a class="lp-header-phone" href="tel:{PHONE_TEL}">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
       {PHONE_DISPLAY}
