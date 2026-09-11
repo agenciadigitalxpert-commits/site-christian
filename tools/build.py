@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import site_engine as se
 import pages_main
 import blog_content
+import lp_content
 
 REPO_ROOT = se.REPO_ROOT
 
@@ -41,7 +42,7 @@ Sitemap: {se.BASE_URL}/sitemap.xml
 def build_sitemap():
     urls = []
     for p in se.PAGES_REGISTRY:
-        if p["path"] == "404.html":
+        if p["path"] == "404.html" or "noindex" in p.get("robots", ""):
             continue
         loc = f"{se.BASE_URL}/" if p["path"] == "index.html" else f"{se.BASE_URL}/{p['path']}"
         urls.append(f'''  <url>
@@ -59,7 +60,9 @@ def build_sitemap():
 
 
 def build_llms_txt():
-    core = [p for p in se.PAGES_REGISTRY if p["path"].count("/") == 0 and p["path"] not in ("404.html",)]
+    core = [p for p in se.PAGES_REGISTRY
+            if p["path"].count("/") == 0 and p["path"] not in ("404.html",)
+            and "noindex" not in p.get("robots", "") and not p["path"].startswith("lp-")]
     treat_pages = [p for p in core if p["path"].startswith("tratamento-")]
     other_core = [p for p in core if p not in treat_pages and p["path"] != "tratamentos.html"]
     blog_index = [p for p in se.PAGES_REGISTRY if p["path"] == "blog/index.html"]
@@ -103,6 +106,7 @@ def main():
     build_favicon()
     pages_main.build_all()
     blog_content.build_all()
+    lp_content.build_all()
     build_robots()
     build_sitemap()
     build_llms_txt()

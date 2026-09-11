@@ -641,6 +641,37 @@ p{ margin: 0 0 1em; max-width: 62ch; }
 .related-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1.6em; }
 @media (max-width: 860px){ .related-grid{ grid-template-columns:1fr; } }
 
+/* ---------- landing pages de tráfego pago ---------- */
+.lp-header{ background: var(--white); border-bottom: 1px solid var(--line-soft); padding: 1.1em 0; }
+.lp-header .wrap{ display:flex; align-items:center; justify-content:space-between; }
+.lp-header-phone{ display:flex; align-items:center; gap:.55em; font-weight:700; font-size:.95rem; color:var(--teal-deep); transition: color .2s ease; }
+.lp-header-phone:hover{ color: var(--ink); }
+
+.lp-footer{ background: var(--ink); color: rgba(255,255,255,.55); padding: 2.2em 0; text-align:center; }
+.lp-footer .wrap{ display:flex; flex-direction:column; gap:.7em; align-items:center; }
+.lp-footer p{ margin:0; font-size:.8rem; max-width:60ch; }
+.lp-footer a{ color: rgba(255,255,255,.55); text-decoration:underline; text-underline-offset:.2em; font-size:.8rem; transition:color .2s ease; }
+.lp-footer a:hover{ color: var(--white); }
+
+.lp-trust{ display:flex; flex-wrap:wrap; gap: .9em 1.8em; margin-top: 1.9em; padding-top:1.7em; border-top:1px solid var(--line); }
+.lp-trust li{ display:flex; align-items:center; gap:.6em; font-size:.92rem; font-weight:600; color:var(--ink-80); }
+.lp-trust li svg{ flex-shrink:0; color:var(--teal); }
+
+.lp-sticky-bar{
+  display:none; position:fixed; left:0; right:0; bottom:0; z-index:85;
+  background: var(--white); border-top:1px solid var(--line);
+  box-shadow: 0 -10px 30px rgba(15,33,27,.14);
+  padding: .8em var(--gutter);
+  align-items:center; justify-content:space-between; gap:1em;
+}
+.lp-sticky-bar strong{ font-family: var(--f-display); font-size:1rem; font-weight:500; }
+.lp-sticky-bar span{ display:block; font-size:.76rem; color:var(--ink-40); }
+@media (max-width: 720px){
+  .lp-sticky-bar{ display:flex; }
+  body:has(.lp-sticky-bar){ padding-bottom: 78px; }
+  body:has(.lp-sticky-bar) .wa-float{ display:none; }
+}
+
 /* ---------- 404 ---------- */
 .error-page{ min-height: 60vh; display:flex; align-items:center; justify-content:center; text-align:center; padding: 4em 0; }
 .error-page .code{ font-family: var(--f-display); font-size: clamp(5rem,14vw,9rem); color: var(--teal-pale); line-height:1; }
