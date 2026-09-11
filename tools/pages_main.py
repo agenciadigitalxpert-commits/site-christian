@@ -61,8 +61,8 @@ def build_home():
         </div>
       </div>
       <div class="hero-media" data-reveal="right">
-        <div class="frame">
-          <img src="{img('consulta', 1000, 1150)}" alt="Dentista e paciente avaliando exame de imagem em consultório claro do Instituto Christian Andrade" width="1000" height="1150" loading="eager" fetchpriority="high">
+        <div class="hero-cutout">
+          <img src="images/christian-andrade.webp" alt="Dr. Christian Andrade" width="1200" height="1326" loading="eager" fetchpriority="high">
         </div>
         <div class="hero-badge">
           <strong>Garantia vitalícia</strong>
