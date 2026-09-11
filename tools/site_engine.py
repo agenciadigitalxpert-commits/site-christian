@@ -18,6 +18,35 @@ WHATSAPP_NUMBER = "5541996962223"
 
 TODAY = "2026-09-11"
 
+# ---------------------------------------------------------------------------
+# Google Tag Manager
+# Assim que o container for criado, cole o ID (formato "GTM-XXXXXXX") abaixo
+# e rode `python3 tools/build.py` de novo — o snippet é injetado automaticamente
+# em <head> e logo após <body> em TODAS as páginas. Enquanto estiver vazio,
+# nenhum script do GTM é carregado, mas o dataLayer já é inicializado e
+# populado por js/main.js (ver seção "rastreamento avançado" lá), então nenhum
+# evento é perdido: o GTM lê o histórico do dataLayer assim que carregar.
+# ---------------------------------------------------------------------------
+GTM_CONTAINER_ID = ""  # ex.: "GTM-ABCD123"
+
+
+def gtm_head_snippet():
+    if not GTM_CONTAINER_ID:
+        return ""
+    return f'''<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+}})(window,document,'script','dataLayer','{GTM_CONTAINER_ID}');</script>
+'''
+
+
+def gtm_body_snippet():
+    if not GTM_CONTAINER_ID:
+        return ""
+    return (f'<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={GTM_CONTAINER_ID}" '
+            'height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n')
+
 def wa_link(message):
     import urllib.parse
     return f"https://api.whatsapp.com/send?phone={WHATSAPP_NUMBER}&text={urllib.parse.quote(message)}"
@@ -307,6 +336,31 @@ def wa_float(root):
 <button class="back-to-top" aria-label="Voltar ao topo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="#0F211B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'''
 
 
+def lp_header(root):
+    """Cabeçalho minimalista para landing pages de tráfego pago: sem menu,
+    sem links de saída — só marca e telefone, para não competir com o CTA."""
+    return f'''<header class="lp-header">
+  <div class="wrap">
+    <span class="logo">{logo_mark()} Christian Andrade <span>Odontologia</span></span>
+    <a class="lp-header-phone" href="tel:{PHONE_TEL}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      {PHONE_DISPLAY}
+    </a>
+  </div>
+</header>'''
+
+
+def lp_footer(root):
+    """Rodapé enxuto para landing pages: identificação legal mínima, sem
+    sitemap completo (evita abrir rotas de saída da página de conversão)."""
+    return f'''<footer class="lp-footer">
+  <div class="wrap">
+    <p>© 2026 Instituto Christian Andrade — odontologia e harmonização orofacial desde 2005. {PHONE_DISPLAY} · {EMAIL}</p>
+    <a href="{root}index.html">Conhecer o site completo →</a>
+  </div>
+</footer>'''
+
+
 ORG_LOGO = f"{BASE_URL}/favicon.svg"
 
 def organization_ld():
@@ -364,7 +418,7 @@ def website_ld():
 
 def page(path, title, description, active, body, root="", json_ld_list=None,
          og_image=None, priority="0.6", changefreq="monthly", extra_head="",
-         robots="index, follow"):
+         robots="index, follow", chrome="full"):
     canonical = f"{BASE_URL}/{path}" if path != "index.html" else f"{BASE_URL}/"
     og_image = og_image or img("clinica_azul", 1200, 630)
     json_ld_list = json_ld_list or []
@@ -375,7 +429,8 @@ def page(path, title, description, active, body, root="", json_ld_list=None,
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title}</title>
+<script>window.dataLayer = window.dataLayer || [];</script>
+{gtm_head_snippet()}<title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="{robots}">
@@ -399,10 +454,10 @@ def page(path, title, description, active, body, root="", json_ld_list=None,
 {extra_head}{json_ld_html}
 </head>
 <body>
+{gtm_body_snippet()}
+{topbar(root) if chrome == "full" else ""}
 
-{topbar(root)}
-
-{header(root, active)}
+{header(root, active) if chrome == "full" else lp_header(root)}
 
 <main>
 
@@ -410,7 +465,7 @@ def page(path, title, description, active, body, root="", json_ld_list=None,
 
 </main>
 
-{footer(root)}
+{footer(root) if chrome == "full" else lp_footer(root)}
 
 {wa_float(root)}
 
@@ -425,6 +480,6 @@ def page(path, title, description, active, body, root="", json_ld_list=None,
 
     PAGES_REGISTRY.append({
         "path": path, "title": title, "description": description,
-        "priority": priority, "changefreq": changefreq,
+        "priority": priority, "changefreq": changefreq, "robots": robots,
     })
     return html
