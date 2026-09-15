@@ -63,7 +63,7 @@ def build_home():
       <div class="hero-media" data-reveal="right">
         <div class="hero-cutout">
           <div class="hero-photo">
-            <img src="images/christian-andrade.webp" alt="Dr. Christian Andrade" width="1200" height="1326" loading="eager" fetchpriority="high">
+            <img src="images/christian-andrade.webp" alt="Dr. Christian Andrade" width="998" height="1607" loading="eager" fetchpriority="high">
             <div class="hero-ribbon">Número 1 em Implantes Neodent do Brasil &middot; Garantia Vitalícia</div>
           </div>
         </div>
