@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       track('generate_lead', { lead_type: 'form', link_location: 'contact_page', unit: unidade || 'sem_preferencia' });
       window.open(`https://api.whatsapp.com/send?phone=5541996962223&text=${encodeURIComponent(msg)}`, '_blank');
       status.textContent = 'Perfeito! Abrimos o WhatsApp para você concluir o contato.';
-      status.style.color = '#16816B';
+      status.style.color = '#2E6248';
       form.reset();
     });
   }

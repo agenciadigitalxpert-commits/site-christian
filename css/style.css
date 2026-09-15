@@ -1,11 +1,11 @@
 /* =========================================================
    INSTITUTO CHRISTIAN ANDRADE — DESIGN SYSTEM
    Luz, porcelana e branco odontológico como protagonistas.
-   Acentos em verde-clínico (teal) e um toque de latão.
-   Tipografia: Fraunces (display) + Work Sans (corpo).
+   Acentos em verde-clínico e um toque de latão.
+   Tipografia: Manrope (display) + Work Sans (corpo).
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root{
   /* -- branco protagonista -- */
@@ -15,29 +15,29 @@
   --mist-deep:  #E8F0EC;
 
   /* -- texto -- */
-  --ink:        #0F211B;
-  --ink-80:     rgba(15,33,27,.82);
-  --ink-60:     rgba(15,33,27,.62);
-  --ink-40:     rgba(15,33,27,.42);
-  --ink-15:     rgba(15,33,27,.1);
+  --ink:        #1B1C1B;
+  --ink-80:     rgba(27,28,27,.82);
+  --ink-60:     rgba(27,28,27,.62);
+  --ink-40:     rgba(27,28,27,.42);
+  --ink-15:     rgba(27,28,27,.1);
 
-  /* -- acento clínico (teal) -- */
-  --teal:       #16816B;
-  --teal-deep:  #0E5A49;
-  --teal-pale:  #E3F3EE;
-  --teal-glow:  rgba(22,129,107,.16);
+  /* -- acento clínico (verde) -- */
+  --teal:       #4F8A68;
+  --teal-deep:  #2E6248;
+  --teal-pale:  #E2EFE7;
+  --teal-glow:  rgba(79,138,104,.16);
 
   /* -- latão (uso raro, CTA de destaque) -- */
   --gold:       #C79A3D;
   --gold-deep:  #9C7628;
 
-  --line:       rgba(15,33,27,.10);
-  --line-soft:  rgba(15,33,27,.06);
-  --shadow-sm:  0 2px 10px rgba(15,33,27,.06);
-  --shadow-md:  0 18px 44px rgba(15,33,27,.10);
-  --shadow-lg:  0 30px 70px rgba(15,33,27,.14);
+  --line:       rgba(27,28,27,.10);
+  --line-soft:  rgba(27,28,27,.06);
+  --shadow-sm:  0 2px 10px rgba(27,28,27,.06);
+  --shadow-md:  0 18px 44px rgba(27,28,27,.10);
+  --shadow-lg:  0 30px 70px rgba(27,28,27,.14);
 
-  --f-display: 'Fraunces', serif;
+  --f-display: 'Manrope', sans-serif;
   --f-body: 'Work Sans', sans-serif;
 
   --maxw: 1220px;
