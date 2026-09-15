@@ -48,7 +48,7 @@ def build_home():
     <div class="wrap">
       <div class="hero-copy" data-reveal="left">
         <p class="eyebrow">Odontologia &amp; Harmonização Orofacial desde 2005</p>
-        <h1>O sorriso que você imaginou existe — e começa com uma avaliação.</h1>
+        <h1>O sorriso que você imaginou existe e começa com uma avaliação.</h1>
         <p class="lede">Implantes, ortodontia, facetas e harmonização facial com equipe multidisciplinar, tecnologia de ponta e acompanhamento humano em 5 unidades na região de Curitiba.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
@@ -56,7 +56,7 @@ def build_home():
         </div>
         <div class="stats">
           {stat("20+", "anos de atuação")}
-          {stat("4", "unidades na região")}
+          {stat("5", "unidades na região")}
           {stat("30 mil+", "implantes realizados")}
         </div>
       </div>
