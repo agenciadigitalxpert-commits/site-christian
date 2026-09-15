@@ -49,7 +49,7 @@ def build_home():
       <div class="hero-copy" data-reveal="left">
         <p class="eyebrow">Odontologia &amp; Harmonização Orofacial desde 2005</p>
         <h1>O sorriso que você imaginou existe — e começa com uma avaliação.</h1>
-        <p class="lede">Implantes, ortodontia, facetas e harmonização facial com equipe multidisciplinar, tecnologia de ponta e acompanhamento humano em 4 unidades na região de Curitiba.</p>
+        <p class="lede">Implantes, ortodontia, facetas e harmonização facial com equipe multidisciplinar, tecnologia de ponta e acompanhamento humano em 5 unidades na região de Curitiba.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
           <a class="btn btn-outline" href="tratamentos.html">Ver tratamentos</a>
@@ -151,7 +151,7 @@ def build_home():
       <div class="section-head" data-reveal>
         <div>
           <p class="eyebrow">Onde estamos</p>
-          <h2>4 unidades para ficar perto de você</h2>
+          <h2>5 unidades para ficar perto de você</h2>
         </div>
         <a class="btn btn-outline" href="unidades.html">Ver todas as unidades</a>
       </div>
@@ -172,7 +172,7 @@ def build_home():
     page(
         "index.html",
         "Instituto Christian Andrade — Odontologia em Curitiba",
-        "Implantes, harmonização orofacial, ortodontia e estética dental em 4 unidades em Curitiba e região. Agende sua avaliação.",
+        "Implantes, harmonização orofacial, ortodontia e estética dental em 5 unidades em Curitiba e região. Agende sua avaliação.",
         "home", body, root="",
         json_ld_list=[website_ld(), organization_ld()],
         og_image=img("consulta", 1200, 630),
@@ -204,7 +204,7 @@ def build_sobre():
         <p class="eyebrow">Nossa história</p>
         <h2>Técnica avançada, tratamento personalizado</h2>
         <p>Com técnicas avançadas e equipamentos altamente tecnológicos, oferecemos tratamentos personalizados de acordo com a necessidade de cada paciente. Além de questões estéticas — como lentes de contato dental e clareamento — somos especialistas em tratamentos de saúde, como implantes e endodontia.</p>
-        <p>Renove sua autoestima e busque o que você sempre sonhou. Ajudamos você a melhorar sua saúde bucal com tratamentos seguros e alta tecnologia, em qualquer uma das nossas 4 unidades na região de Curitiba.</p>
+        <p>Renove sua autoestima e busque o que você sempre sonhou. Ajudamos você a melhorar sua saúde bucal com tratamentos seguros e alta tecnologia, em qualquer uma das nossas 5 unidades na região de Curitiba.</p>
         <a class="btn btn-primary" href="contato.html">Marcar consulta inicial</a>
       </div>
       <div class="frame" style="aspect-ratio:4/4.8; border-radius:var(--radius-l); overflow:hidden;" data-reveal="right">
@@ -255,7 +255,7 @@ def build_sobre():
   <section class="cta-band" data-reveal>
     <div class="wrap">
       <h2>Agende sua avaliação agora mesmo</h2>
-      <p>Estamos te esperando em uma das nossas 4 unidades.</p>
+      <p>Estamos te esperando em uma das nossas 5 unidades.</p>
       <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
@@ -583,6 +583,7 @@ def build_unidades():
     for i, u in enumerate(UNITS):
         bg = " on-mist" if i % 2 else ""
         img_first = i % 2 == 0
+        doc_line = f'<p class="doc">Responsável técnico(a): {u["doctor"]} — {u["cro"]}</p>' if u.get("doctor") else ""
         img_block = f'''<div class="frame" style="aspect-ratio:4/3.2; border-radius:var(--radius-l); overflow:hidden;" data-reveal="left">
         <img src="{u['img']}" alt="Ambiente da {u['name']}" width="1000" height="800" loading="lazy">
       </div>'''
@@ -591,7 +592,7 @@ def build_unidades():
         <h2 style="margin-top:.7em;">{u['name']}</h2>
         <p class="addr">{u['address']}</p>
         <p>{u['phone_display']}</p>
-        <p class="doc">Responsável técnico(a): {u['doctor']} — {u['cro']}</p>
+        {doc_line}
         <a class="btn btn-primary" href="{wa_link(f"Olá, quero agendar uma avaliação na unidade {u['name']}.")}" target="_blank" rel="noopener">Agendar nesta unidade</a>
       </div>'''
         if img_first:
@@ -611,7 +612,7 @@ def build_unidades():
     <div class="wrap">
       <p class="breadcrumb"><a href="index.html">Home</a> / Unidades</p>
       <p class="eyebrow">Onde estamos</p>
-      <h1 data-reveal>4 unidades para ficar perto de você</h1>
+      <h1 data-reveal>5 unidades para ficar perto de você</h1>
       <p class="lede" data-reveal>Cada unidade conta com responsável técnico habilitado e a mesma estrutura de qualidade do Instituto Christian Andrade.</p>
     </div>
   </section>

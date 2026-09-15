@@ -71,14 +71,17 @@ def build_llms_txt():
     def line(p):
         return f"- [{p['title']}]({se.BASE_URL}/{p['path']}): {p['description']}"
 
-    units_lines = "\n".join(
-        f"- {u['name']}: {u['address']} · {u['phone_display']} · Responsável técnico(a): {u['doctor']} ({u['cro']})"
-        for u in se.UNITS
-    )
+    def unit_line(u):
+        base = f"- {u['name']}: {u['address']} · {u['phone_display']}"
+        if u.get("doctor"):
+            base += f" · Responsável técnico(a): {u['doctor']} ({u['cro']})"
+        return base
+
+    units_lines = "\n".join(unit_line(u) for u in se.UNITS)
 
     content = f'''# Instituto Christian Andrade
 
-> Instituto odontológico com 4 unidades na região de Curitiba/PR (Batel, Sítio Cercado, Pinhais/Weissópolis e São José dos Pinhais), em atividade desde 2005. Especialidades: implantodontia (sistema Grand Morse Neodent, com garantia vitalícia e cirurgia guiada), ortodontia, harmonização orofacial (bichectomia, fios de sustentação, preenchimento facial), facetas e lentes de contato dental, e odontologia geral (clareamento, endodontia, limpeza, extrações, restaurações).
+> Instituto odontológico com 5 unidades na região de Curitiba/PR (Batel, Sítio Cercado, Pinhais/Weissópolis, São José dos Pinhais e Colombo/Guarani), em atividade desde 2005. Especialidades: implantodontia (sistema Grand Morse Neodent, com garantia vitalícia e cirurgia guiada), ortodontia, harmonização orofacial (bichectomia, fios de sustentação, preenchimento facial), facetas e lentes de contato dental, e odontologia geral (clareamento, endodontia, limpeza, extrações, restaurações).
 
 Contato: WhatsApp {se.WA_DEFAULT} · Telefone {se.PHONE_DISPLAY} · E-mail {se.EMAIL}
 

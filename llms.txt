@@ -1,11 +1,11 @@
 # Instituto Christian Andrade
 
-> Instituto odontológico com 4 unidades na região de Curitiba/PR (Batel, Sítio Cercado, Pinhais/Weissópolis e São José dos Pinhais), em atividade desde 2005. Especialidades: implantodontia (sistema Grand Morse Neodent, com garantia vitalícia e cirurgia guiada), ortodontia, harmonização orofacial (bichectomia, fios de sustentação, preenchimento facial), facetas e lentes de contato dental, e odontologia geral (clareamento, endodontia, limpeza, extrações, restaurações).
+> Instituto odontológico com 5 unidades na região de Curitiba/PR (Batel, Sítio Cercado, Pinhais/Weissópolis, São José dos Pinhais e Colombo/Guarani), em atividade desde 2005. Especialidades: implantodontia (sistema Grand Morse Neodent, com garantia vitalícia e cirurgia guiada), ortodontia, harmonização orofacial (bichectomia, fios de sustentação, preenchimento facial), facetas e lentes de contato dental, e odontologia geral (clareamento, endodontia, limpeza, extrações, restaurações).
 
 Contato: WhatsApp https://api.whatsapp.com/send?phone=5541996962223&text=Ol%C3%A1%20Instituto%20Christian%20Andrade%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o. · Telefone (41) 99873-0054 · E-mail contato@christianandrade.com.br
 
 ## Páginas principais
-- [Instituto Christian Andrade — Odontologia em Curitiba](https://www.christianandrade.com.br/index.html): Implantes, harmonização orofacial, ortodontia e estética dental em 4 unidades em Curitiba e região. Agende sua avaliação.
+- [Instituto Christian Andrade — Odontologia em Curitiba](https://www.christianandrade.com.br/index.html): Implantes, harmonização orofacial, ortodontia e estética dental em 5 unidades em Curitiba e região. Agende sua avaliação.
 - [Sobre a Clínica — Instituto Christian Andrade](https://www.christianandrade.com.br/sobre.html): Desde 2005 no ramo da odontologia. Conheça a história, a missão, a visão e os valores do Instituto Christian Andrade.
 - [Unidades — Instituto Christian Andrade](https://www.christianandrade.com.br/unidades.html): Batel, Sítio Cercado, Pinhais e São José dos Pinhais. Encontre a unidade do Instituto Christian Andrade mais perto de você.
 - [Depoimentos — Instituto Christian Andrade](https://www.christianandrade.com.br/depoimentos.html): Veja quem já realizou o sonho do sorriso ideal com o Instituto Christian Andrade.
@@ -24,6 +24,7 @@ Contato: WhatsApp https://api.whatsapp.com/send?phone=5541996962223&text=Ol%C3%A
 - Clínica Sítio Cercado: Rua Agudos do Sul, 40 — Sítio Cercado, Curitiba/PR · (41) 99873-0054 · Responsável técnico(a): Dra. Barbara Hauser Novicki (CRO/PR 22234 · CLM/PR 1695)
 - Clínica Pinhais (Weissópolis): Av. Iraí, 1632 — loja 2 — Weissópolis, Pinhais/PR · (41) 99873-0054 · Responsável técnico(a): Dr. Mário Hayashi Junior (CRO/PR 17908)
 - Clínica São José dos Pinhais: Av. Margarida de Araújo Franco, 2008 — Carioca, SJP/PR · (41) 3030-3010 · Responsável técnico(a): Dra. Rafaela Bueno Silva (CRO/PR 32974 · CFL 1953)
+- Clínica Colombo (Guarani): Rua Kelvin, 129 — Guarani, Colombo/PR · (41) 3030-3010
 
 ## Blog
 - [Blog — Instituto Christian Andrade](https://www.christianandrade.com.br/blog/index.html): Artigos sobre implantes, harmonização orofacial, ortodontia, facetas e saúde bucal, escritos pela equipe do Instituto Christian Andrade.
