@@ -553,11 +553,11 @@ def related_posts_html(current):
 def build_article(p):
     faq_html = faq_block(p["faqs"]) if p.get("faqs") else ""
     wa_links = {
-        "wa_implantes": wa_link("Olá, li o blog e quero agendar uma avaliação de implantes."),
-        "wa_harm": wa_link("Olá, li o blog e quero agendar uma avaliação de harmonização orofacial."),
-        "wa_facetas": wa_link("Olá, li o blog e quero agendar uma avaliação de facetas/lentes de contato dental."),
-        "wa_ortho": wa_link("Olá, li o blog e quero agendar uma avaliação ortodôntica."),
-        "wa_geral": wa_link("Olá, li o blog e quero agendar uma avaliação odontológica."),
+        "wa_implantes": WA_DEFAULT,
+        "wa_harm": WA_DEFAULT,
+        "wa_facetas": WA_DEFAULT,
+        "wa_ortho": WA_DEFAULT,
+        "wa_geral": WA_DEFAULT,
     }
     prose = p["body"].format(faq_html=faq_html, **wa_links)
 

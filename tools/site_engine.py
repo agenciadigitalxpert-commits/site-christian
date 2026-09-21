@@ -51,7 +51,8 @@ def wa_link(message, phone=None):
     import urllib.parse
     return f"https://api.whatsapp.com/send?phone={phone or WHATSAPP_NUMBER}&text={urllib.parse.quote(message)}"
 
-WA_DEFAULT = wa_link("Olá Instituto Christian Andrade, quero agendar uma avaliação.")
+DEFAULT_WA_MESSAGE = "Olá, vim pelo site e quero agendar uma avaliação!"
+WA_DEFAULT = wa_link(DEFAULT_WA_MESSAGE)
 
 # ---------------------------------------------------------------------------
 # Banco de imagens (verificadas — fotos de estoque profissionais, licença

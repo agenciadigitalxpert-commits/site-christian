@@ -369,7 +369,7 @@ def build_tratamentos():
 
 
 def treatment_detail_page(t, hero_lede, intro_eyebrow, intro_title, intro_text, sub_items,
-                            steps, faqs, hero_img_key, description, wa_extra=""):
+                            steps, faqs, hero_img_key, description):
     subs = "\n".join(f'''          <div class="treat-card">
             <h4>{name}</h4>
             <p>{desc}</p>
@@ -377,7 +377,7 @@ def treatment_detail_page(t, hero_lede, intro_eyebrow, intro_title, intro_text, 
     steps_html = "\n".join(f'''        <div class="step" data-reveal><div class="n">{i+1:02d}</div><div><h3>{title}</h3><p>{desc}</p></div></div>'''
                             for i, (title, desc) in enumerate(steps))
     faq_html = faq_block(faqs)
-    wa_msg = wa_link(f"Olá, quero agendar uma avaliação de {t['name'].lower()}." if not wa_extra else wa_extra)
+    wa_msg = WA_DEFAULT
 
     body = f'''  <section class="page-hero">
     <div class="wrap">
@@ -594,7 +594,7 @@ def build_unidades():
         <p class="addr">{u['address']}</p>
         <p>{u['phone_display']}</p>
         {doc_line}
-        <a class="btn btn-primary" href="{wa_link(f"Olá, quero agendar uma avaliação na unidade {u['name']}.", u.get('whatsapp'))}" target="_blank" rel="noopener">Agendar nesta unidade</a>
+        <a class="btn btn-primary" href="{wa_link(f"Olá, vim pelo site e quero agendar uma avaliação! Unidade: {u['name']}.", u.get('whatsapp'))}" target="_blank" rel="noopener">Agendar nesta unidade</a>
       </div>'''
         if img_first:
             inner = img_block + "\n      " + text_block
