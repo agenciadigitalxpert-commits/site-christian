@@ -87,7 +87,7 @@ UNITS = [
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
         "whatsapp": "554196960730",
         "doctor": "Dra. Sandra Mara Hretzko", "cro": "CRO/PR 12411 · CLM/PR 3311",
-        "img": img("clinica_azul", 1000, 800),
+        "img": "images/unidade-batel.webp",
         "maps_q": "Av.+Silva+Jardim,+2522,+Batel,+Curitiba,+PR",
     },
     {
@@ -97,7 +97,7 @@ UNITS = [
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
         "whatsapp": "554198590524",
         "doctor": "Dra. Barbara Hauser Novicki", "cro": "CRO/PR 22234 · CLM/PR 1695",
-        "img": img("clinica_vermelha", 1000, 800),
+        "img": "images/unidade-sitio-cercado.webp",
         "maps_q": "Rua+Agudos+do+Sul,+40,+Sitio+Cercado,+Curitiba,+PR",
     },
     {

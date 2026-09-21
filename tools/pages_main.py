@@ -185,7 +185,7 @@ def build_sobre():
           <img src="{src}" alt="{alt}" width="800" height="800" loading="lazy">
         </div>''' for src, alt in [
         ("images/consultorio-interno-square.webp", "Sala de atendimento do Instituto Christian Andrade"),
-        (img("clinica_ampla", 800, 800), "Sala de atendimento com equipamentos de alta tecnologia"),
+        ("images/consultorio-batel-interno-square.webp", "Recepção da unidade Batel"),
         (img("clinica_vista", 800, 800), "Ambiente amplo e iluminado de uma das unidades"),
     ])
 
