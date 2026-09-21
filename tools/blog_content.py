@@ -59,7 +59,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Quer saber se o implante é indicado para o seu caso?</h4><p>Uma avaliação com exame de imagem responde essa pergunta com precisão.</p></div>
-          <a class="btn btn-gold" href="{wa_implantes}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_implantes}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -109,7 +109,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Toda indicação começa por uma avaliação individual</h4><p>Marque uma consulta e receba um plano personalizado para o seu rosto.</p></div>
-          <a class="btn btn-gold" href="{wa_harm}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_harm}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -154,7 +154,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Planeje seu sorriso com uma simulação antes de decidir</h4><p>Marque uma avaliação e veja qual técnica faz mais sentido para o seu caso.</p></div>
-          <a class="btn btn-gold" href="{wa_facetas}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_facetas}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -204,7 +204,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Descubra qual aparelho é indicado para o seu caso</h4><p>Agende uma avaliação ortodôntica completa.</p></div>
-          <a class="btn btn-gold" href="{wa_ortho}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_ortho}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -257,7 +257,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Quer saber se a bichectomia é indicada para o seu rosto?</h4><p>A avaliação facial individual responde essa pergunta.</p></div>
-          <a class="btn btn-gold" href="{wa_harm}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_harm}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -303,7 +303,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Sentindo dor ou sensibilidade persistente?</h4><p>Não espere piorar — agende uma avaliação e tire a dúvida.</p></div>
-          <a class="btn btn-gold" href="{wa_geral}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_geral}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -349,7 +349,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Quer saber qual técnica de clareamento é indicada para você?</h4><p>Agende uma avaliação e receba orientação personalizada.</p></div>
-          <a class="btn btn-gold" href="{wa_geral}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_geral}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -402,7 +402,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Notou algum sinal diferente no seu implante?</h4><p>Quanto antes avaliar, mais simples costuma ser a solução.</p></div>
-          <a class="btn btn-gold" href="{wa_implantes}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_implantes}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -452,7 +452,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Ainda não levou seu filho à primeira consulta?</h4><p>Agende um horário tranquilo para conhecer nossa equipe.</p></div>
-          <a class="btn btn-gold" href="{wa_geral}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_geral}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -500,7 +500,7 @@ POSTS = [
 
         <div class="cta-inline">
           <div><h4>Quer um resultado natural, sob medida para o seu rosto?</h4><p>Agende uma avaliação facial individual.</p></div>
-          <a class="btn btn-gold" href="{wa_harm}" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-gold js-wa-picker" href="{wa_harm}" target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
 
         <h2>Perguntas frequentes</h2>
@@ -592,7 +592,7 @@ def build_article(p):
     <div class="wrap">
       <h2>Pronto para agendar sua avaliação?</h2>
       <p>Nossa equipe multidisciplinar cuida de cada etapa, do diagnóstico ao resultado.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -671,7 +671,7 @@ def build_blog_index():
     <div class="wrap">
       <h2>Ainda com dúvidas sobre algum tratamento?</h2>
       <p>Fale com a nossa equipe e receba orientação personalizada.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 

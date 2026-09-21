@@ -279,11 +279,11 @@ def header(root, active):
     <a href="{root}index.html" class="logo">{logo_mark(root)} Christian Andrade <span>Odontologia</span></a>
     <nav class="main-nav" id="main-nav">
       {nav_links}
-      <a class="btn btn-gold btn-sm nav-cta-mobile" href="{WA_DEFAULT}" target="_blank" rel="noopener">Agendar avaliação</a>
+      <a class="btn btn-gold btn-sm nav-cta-mobile js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Agendar avaliação</a>
     </nav>
     <div class="nav-cta">
       <span class="nav-phone">{PHONE_DISPLAY}</span>
-      <a class="btn btn-gold btn-sm" href="{WA_DEFAULT}" target="_blank" rel="noopener">Agendar avaliação</a>
+      <a class="btn btn-gold btn-sm js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Agendar avaliação</a>
       <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -308,7 +308,7 @@ def footer(root):
         <div class="footer-logo">{logo_mark(root)} Christian Andrade</div>
         <p>Instituto Odontológico com 5 unidades em Curitiba e região, atuando desde 2005 em odontologia e harmonização orofacial. O branco da porcelana e a confiança clínica guiam cada atendimento.</p>
         <div class="footer-social">
-          <a href="{WA_DEFAULT}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z" fill="#fff"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z" fill="#fff"/></svg></a>
+          <a class="js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z" fill="#fff"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z" fill="#fff"/></svg></a>
           <a href="mailto:{EMAIL}" aria-label="E-mail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3z" stroke="#fff" stroke-width="1.4"/><path d="M3 7l9 6 9-6" stroke="#fff" stroke-width="1.4"/></svg></a>
         </div>
       </div>
@@ -340,7 +340,7 @@ def footer(root):
         <ul>
           <li><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
-          <li><a href="{WA_DEFAULT}" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a class="js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
     </div>
@@ -354,10 +354,31 @@ def footer(root):
 
 
 def wa_float(root):
-    return f'''<a class="wa-float" href="{WA_DEFAULT}" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+    return f'''<a class="wa-float js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
   <svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z" fill="#fff"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1120.2 12 8.2 8.2 0 0112 20.2z" fill="#fff"/></svg>
 </a>
 <button class="back-to-top" aria-label="Voltar ao topo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="#1B1C1B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'''
+
+
+def unit_picker_modal():
+    """Modal exibido antes de abrir o WhatsApp em qualquer botão genérico do
+    site (sem unidade já definida pelo contexto) — deixa a pessoa escolher a
+    unidade mais perto dela, e o JS troca o número de WhatsApp de destino."""
+    items = "\n".join(
+        f'''      <button type="button" class="unit-picker-item" data-whatsapp="{u.get('whatsapp') or WHATSAPP_NUMBER}" data-name="{u['name']}">
+        <span class="upi-name">{u['name']}</span>
+        <span class="upi-region">{u['region']}</span>
+      </button>''' for u in UNITS
+    )
+    return f'''<div class="unit-picker-overlay" id="unit-picker-overlay" hidden>
+  <div class="unit-picker" role="dialog" aria-modal="true" aria-labelledby="unit-picker-title">
+    <button type="button" class="unit-picker-close" id="unit-picker-close" aria-label="Fechar">&times;</button>
+    <h3 id="unit-picker-title">Qual unidade fica mais perto de você?</h3>
+    <div class="unit-picker-list">
+{items}
+    </div>
+  </div>
+</div>'''
 
 
 def lp_header(root):
@@ -496,6 +517,8 @@ def page(path, title, description, active, body, root="", json_ld_list=None,
 {footer(root) if chrome == "full" else lp_footer(root)}
 
 {wa_float(root)}
+
+{unit_picker_modal()}
 
 <script src="{root}js/main.js"></script>
 </body>

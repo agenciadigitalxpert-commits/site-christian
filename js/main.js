@@ -118,6 +118,48 @@ document.addEventListener('DOMContentLoaded', () => {
     scrim && scrim.addEventListener('click', closeNav);
   }
 
+  /* ---------- seletor de unidade antes do WhatsApp ---------- */
+  const unitPickerOverlay = document.getElementById('unit-picker-overlay');
+  const unitPickerClose = document.getElementById('unit-picker-close');
+  let pendingWaMessage = '';
+
+  const openUnitPicker = (message) => {
+    pendingWaMessage = message || 'Olá! Quero agendar uma avaliação.';
+    if (!unitPickerOverlay) return;
+    unitPickerOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+  };
+  const closeUnitPicker = () => {
+    if (!unitPickerOverlay) return;
+    unitPickerOverlay.hidden = true;
+    document.body.style.overflow = '';
+  };
+  unitPickerClose && unitPickerClose.addEventListener('click', closeUnitPicker);
+  unitPickerOverlay && unitPickerOverlay.addEventListener('click', (e) => {
+    if (e.target === unitPickerOverlay) closeUnitPicker();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && unitPickerOverlay && !unitPickerOverlay.hidden) closeUnitPicker();
+  });
+  document.querySelectorAll('.unit-picker-item').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const phone = btn.getAttribute('data-whatsapp');
+      const name = btn.getAttribute('data-name');
+      const text = `${pendingWaMessage} Unidade: ${name}.${utmSuffixForMessage()}`;
+      track('unit_selected', { unit: name, link_location: 'unit_picker' });
+      window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`, '_blank');
+      closeUnitPicker();
+    });
+  });
+  document.querySelectorAll('.js-wa-picker').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      let message = '';
+      try { message = decodeURIComponent(new URL(a.href).searchParams.get('text') || ''); } catch (err) { /* ignore */ }
+      openUnitPicker(message);
+    });
+  });
+
   /* ---------- header: encolher ao rolar ---------- */
   const header = document.querySelector('.site-header');
   const backToTop = document.querySelector('.back-to-top');

@@ -51,7 +51,7 @@ def build_home():
         <h1>O sorriso que você imaginou existe e começa com uma avaliação.</h1>
         <p class="lede">Implantes, ortodontia, facetas e harmonização facial com equipe multidisciplinar, tecnologia de ponta e acompanhamento humano em 5 unidades na região de Curitiba.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-primary js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
           <a class="btn btn-outline" href="tratamentos.html">Ver tratamentos</a>
         </div>
         <div class="stats">
@@ -165,7 +165,7 @@ def build_home():
     <div class="wrap">
       <h2>Agende sua avaliação agora mesmo</h2>
       <p>Sem compromisso. Nossa equipe entende seu caso e monta um plano de tratamento sob medida.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -256,7 +256,7 @@ def build_sobre():
     <div class="wrap">
       <h2>Agende sua avaliação agora mesmo</h2>
       <p>Estamos te esperando em uma das nossas 5 unidades.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -353,7 +353,7 @@ def build_tratamentos():
     <div class="wrap">
       <h2>Não sabe por onde começar?</h2>
       <p>Marque uma avaliação e nossa equipe indica o melhor caminho para o seu caso.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -426,7 +426,7 @@ def treatment_detail_page(t, hero_lede, intro_eyebrow, intro_title, intro_text, 
     <div class="wrap">
       <h2>Vamos avaliar o seu caso?</h2>
       <p>Marque uma avaliação e receba um plano personalizado.</p>
-      <a class="btn btn-gold" href="{wa_msg}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{wa_msg}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -624,7 +624,7 @@ def build_unidades():
     <div class="wrap">
       <h2>Fale com a unidade mais próxima</h2>
       <p>Toda a equipe está pronta para te atender.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -659,7 +659,7 @@ def build_depoimentos():
     <div class="wrap">
       <h2>Seja o próximo sorriso transformado</h2>
       <p>Marque sua avaliação e conte sua história com a gente.</p>
-      <a class="btn btn-gold" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-gold js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>'''
 
@@ -725,7 +725,7 @@ def build_contato():
           <div class="unit-card">
             <span class="tag">WhatsApp</span>
             <p class="addr">Atendimento rápido para agendamentos e dúvidas.</p>
-            <a class="btn btn-outline btn-sm" style="width:fit-content;" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar agora</a>
+            <a class="btn btn-outline btn-sm js-wa-picker" style="width:fit-content;" href="{WA_DEFAULT}" target="_blank" rel="noopener">Chamar agora</a>
           </div>
           <div class="unit-card">
             <span class="tag">Telefone</span>
@@ -770,7 +770,7 @@ def build_404():
       <p class="lede" style="margin:1em auto 2em;">O endereço pode ter mudado. Volte para a home ou fale com a gente pelo WhatsApp.</p>
       <div class="hero-actions" style="justify-content:center;">
         <a class="btn btn-primary" href="index.html">Voltar para a Home</a>
-        <a class="btn btn-outline" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn btn-outline js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
       </div>
     </div>
   </section>'''

@@ -97,7 +97,7 @@ def build_lp(lp):
         <h1>{lp['h1']}</h1>
         <p class="lede">{lp['sub']}</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{wa}" target="_blank" rel="noopener">{lp['cta']}</a>
+          <a class="btn btn-primary js-wa-picker" href="{wa}" target="_blank" rel="noopener">{lp['cta']}</a>
         </div>
         <ul class="lp-trust">
 {trust_items}
@@ -123,13 +123,13 @@ def build_lp(lp):
     <div class="wrap">
       <h2>{lp['final_h2']}</h2>
       <p>{lp['final_p']}</p>
-      <a class="btn btn-gold" href="{wa}" target="_blank" rel="noopener">{lp['cta']}</a>
+      <a class="btn btn-gold js-wa-picker" href="{wa}" target="_blank" rel="noopener">{lp['cta']}</a>
     </div>
   </section>
 
   <div class="lp-sticky-bar">
     <div><strong>{lp['cta']}</strong><span>Resposta rápida no WhatsApp</span></div>
-    <a class="btn btn-primary btn-sm" href="{wa}" target="_blank" rel="noopener">Chamar agora</a>
+    <a class="btn btn-primary btn-sm js-wa-picker" href="{wa}" target="_blank" rel="noopener">Chamar agora</a>
   </div>'''
 
     page(
