@@ -589,7 +589,7 @@ def build_unidades():
         <img src="{u['img']}" alt="Ambiente da {u['name']}" width="1000" height="800" loading="lazy">
       </div>'''
         text_block = f'''<div data-reveal="right">
-        <span class="tag" style="background:var(--teal-pale); color:var(--teal-deep); padding:.4em .9em; border-radius:20px; font-size:.74rem; font-weight:700; text-transform:uppercase;">Unidade {u['num']}</span>
+        <span class="tag" style="background:var(--gold-pale); color:var(--gold-deep); padding:.4em .9em; border-radius:20px; font-size:.74rem; font-weight:700; text-transform:uppercase;">Unidade {u['num']}</span>
         <h2 style="margin-top:.7em;">{u['name']}</h2>
         <p class="addr">{u['address']}</p>
         <p>{u['phone_display']}</p>
