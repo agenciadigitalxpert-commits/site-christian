@@ -27,7 +27,7 @@ TODAY = "2026-09-11"
 # populado por js/main.js (ver seção "rastreamento avançado" lá), então nenhum
 # evento é perdido: o GTM lê o histórico do dataLayer assim que carregar.
 # ---------------------------------------------------------------------------
-GTM_CONTAINER_ID = ""  # ex.: "GTM-ABCD123"
+GTM_CONTAINER_ID = "GTM-TN4DX5FH"
 
 
 def gtm_head_snippet():
