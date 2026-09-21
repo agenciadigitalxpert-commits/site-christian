@@ -554,10 +554,11 @@ def build_treatment_pages():
         ("A base de uma boca saudável, em um só lugar",
          "Clareamento, canal, limpeza, extrações e restaurações — cuidado completo com quem entende de cada especialidade."),
         "O que é", "Saúde bucal do jeito certo",
-        "A odontologia geral reúne os cuidados essenciais para manter dentes e gengivas saudáveis: prevenção, tratamento de canal, restaurações e procedimentos cirúrgicos simples. É também a partir dela que identificamos a necessidade de tratamentos mais específicos, como implantes ou ortodontia.",
+        "A odontologia geral reúne os cuidados essenciais para manter dentes e gengivas saudáveis: prevenção, tratamento de canal com microscopia, periodontia, restaurações e procedimentos cirúrgicos simples. É também a partir dela que identificamos a necessidade de tratamentos mais específicos, como implantes ou ortodontia.",
         [
             ("Clareamento dental", "A gel com moldeira personalizada, ou de consultório para resultado mais rápido."),
-            ("Endodontia (canal)", "Tratamento de canal com tecnologia que reduz o desconforto durante e após o procedimento."),
+            ("Endodontia (canal) com microscopia", "Tratamento de canal com microscópio odontológico, que aumenta a precisão e reduz o desconforto durante e após o procedimento."),
+            ("Periodontia", "Tratamento das gengivas e das estruturas de suporte do dente, prevenindo e tratando a doença periodontal."),
             ("Limpeza (profilaxia)", "Remoção de placa e tártaro para prevenção de cáries e doenças gengivais."),
             ("Extrações", "Procedimento seguro para dentes comprometidos, inclusive extração de sisos."),
             ("Restaurações", "Recuperação de dentes com cárie ou fratura, com resultado estético natural."),
@@ -574,7 +575,7 @@ def build_treatment_pages():
             ("Clareamento dental estraga o dente?", "Quando feito com acompanhamento profissional e produtos adequados, o clareamento é seguro para o esmalte."),
         ],
         "clinica_ampla",
-        "Clareamento, endodontia, limpeza, extrações e restaurações. Conheça a odontologia geral do Instituto Christian Andrade.",
+        "Clareamento, endodontia com microscopia, periodontia, limpeza, extrações e restaurações. Conheça a odontologia geral do Instituto Christian Andrade.",
     )
 
 
@@ -593,7 +594,7 @@ def build_unidades():
         <p class="addr">{u['address']}</p>
         <p>{u['phone_display']}</p>
         {doc_line}
-        <a class="btn btn-primary" href="{wa_link(f"Olá, quero agendar uma avaliação na unidade {u['name']}.")}" target="_blank" rel="noopener">Agendar nesta unidade</a>
+        <a class="btn btn-primary" href="{wa_link(f"Olá, quero agendar uma avaliação na unidade {u['name']}.", u.get('whatsapp'))}" target="_blank" rel="noopener">Agendar nesta unidade</a>
       </div>'''
         if img_first:
             inner = img_block + "\n      " + text_block

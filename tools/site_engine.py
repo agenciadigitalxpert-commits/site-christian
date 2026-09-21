@@ -47,9 +47,9 @@ def gtm_body_snippet():
     return (f'<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={GTM_CONTAINER_ID}" '
             'height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n')
 
-def wa_link(message):
+def wa_link(message, phone=None):
     import urllib.parse
-    return f"https://api.whatsapp.com/send?phone={WHATSAPP_NUMBER}&text={urllib.parse.quote(message)}"
+    return f"https://api.whatsapp.com/send?phone={phone or WHATSAPP_NUMBER}&text={urllib.parse.quote(message)}"
 
 WA_DEFAULT = wa_link("Olá Instituto Christian Andrade, quero agendar uma avaliação.")
 
@@ -83,17 +83,19 @@ UNITS = [
     {
         "key": "batel", "num": "01", "name": "Clínica Batel",
         "region": "Batel · Curitiba",
-        "address": "Av. Silva Jardim, 2520 — Batel, Curitiba/PR",
+        "address": "Av. Silva Jardim, 2522 — Batel, Curitiba/PR",
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
+        "whatsapp": "554196960730",
         "doctor": "Dra. Sandra Mara Hretzko", "cro": "CRO/PR 12411 · CLM/PR 3311",
         "img": img("clinica_azul", 1000, 800),
-        "maps_q": "Av.+Silva+Jardim,+2520,+Batel,+Curitiba,+PR",
+        "maps_q": "Av.+Silva+Jardim,+2522,+Batel,+Curitiba,+PR",
     },
     {
         "key": "sitio-cercado", "num": "02", "name": "Clínica Sítio Cercado",
         "region": "Sítio Cercado · Curitiba",
         "address": "Rua Agudos do Sul, 40 — Sítio Cercado, Curitiba/PR",
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
+        "whatsapp": "554198590524",
         "doctor": "Dra. Barbara Hauser Novicki", "cro": "CRO/PR 22234 · CLM/PR 1695",
         "img": img("clinica_vermelha", 1000, 800),
         "maps_q": "Rua+Agudos+do+Sul,+40,+Sitio+Cercado,+Curitiba,+PR",
@@ -112,6 +114,7 @@ UNITS = [
         "region": "Carioca · São José dos Pinhais",
         "address": "Av. Margarida de Araújo Franco, 2008 — Carioca, SJP/PR",
         "phone_display": PHONE_SJP_DISPLAY, "phone_tel": PHONE_SJP_TEL,
+        "whatsapp": "554195710490",
         "doctor": "Dra. Rafaela Bueno Silva", "cro": "CRO/PR 32974 · CFL 1953",
         "img": "images/unidade-sjp.webp",
         "maps_q": "Av.+Margarida+de+Araujo+Franco,+2008,+Sao+Jose+dos+Pinhais,+PR",
@@ -119,11 +122,12 @@ UNITS = [
     {
         "key": "colombo", "num": "05", "name": "Clínica Colombo (Guarani)",
         "region": "Guarani · Colombo",
-        "address": "Rua Kelvin, 129 — Guarani, Colombo/PR",
+        "address": "Rua Pasteur, 96 — Guarani, Colombo/PR",
         "phone_display": "(41) 3030-3010", "phone_tel": "+554130303010",
-        "doctor": "", "cro": "",
+        "whatsapp": "554197351758",
+        "doctor": "Dr. Pedro Bellani", "cro": "CRO/PR 21215",
         "img": "images/unidade-colombo.webp",
-        "maps_q": "Rua+Kelvin,+129,+Guarani,+Colombo,+PR",
+        "maps_q": "Rua+Pasteur,+96,+Guarani,+Colombo,+PR",
     },
 ]
 
@@ -155,7 +159,7 @@ TREATMENTS = [
     {
         "key": "geral", "num": "05", "slug": "tratamento-odontologia-geral.html",
         "name": "Odontologia geral",
-        "short": "Limpeza, clareamento, endodontia, restaurações e extrações — a base da sua saúde bucal.",
+        "short": "Limpeza, clareamento, endodontia com microscopia, periodontia, restaurações e extrações — a base da sua saúde bucal.",
         "eyebrow": "Odontologia Geral",
     },
 ]
@@ -237,13 +241,21 @@ def faq_block(items):
     return '\n' + '\n'.join(rows) + '\n      '
 
 
+def unit_label(u):
+    """Nome curto de exibição: bairro quando a cidade é Curitiba (Batel, Sítio
+    Cercado distinguem-se pelo bairro); nome da cidade nas demais unidades,
+    que ficam em municípios próprios (Pinhais, SJP, Colombo)."""
+    neighborhood, city = u["region"].split(" · ")[0], u["region"].split(" · ")[-1]
+    return neighborhood if city == "Curitiba" else city
+
+
 def logo_mark(root=""):
     return f'<img class="logo-mark" src="{root}images/tooth-mark.webp" alt="" width="20" height="22" aria-hidden="true">'
 
 
 def topbar(root):
     links = "\n      ".join(
-        f'<a href="{root}unidades.html#{u["key"]}"><span>{u["num"]}</span>{u["region"].split(" · ")[0]}</a>'
+        f'<a href="{root}unidades.html#{u["key"]}"><span>{u["num"]}</span>{unit_label(u)}</a>'
         for u in UNITS
     )
     return f'''<div class="topbar">
@@ -281,7 +293,10 @@ def header(root, active):
 
 def footer(root):
     unit_links = "\n          ".join(
-        f'<li><a href="{root}unidades.html#{u["key"]}">{u["region"].split(" · ")[0]}</a></li>' for u in UNITS
+        f'<li><a href="{root}unidades.html#{u["key"]}">{unit_label(u)}</a></li>' for u in UNITS
+    )
+    tech_line = " · ".join(
+        f"{unit_label(u)} — {u['doctor']} ({u['cro']})" for u in UNITS if u.get("doctor")
     )
     treat_links = "\n          ".join(
         f'<li><a href="{root}{href}">{label}</a></li>' for label, href in FOOTER_TREATMENT_LINKS
@@ -329,9 +344,10 @@ def footer(root):
         </ul>
       </div>
     </div>
+    <p class="footer-tech">Responsáveis técnicos: {tech_line}</p>
     <div class="footer-bottom">
       <span>© 2026 Instituto Christian Andrade — CNPJ e responsabilidade técnica por unidade. Todos os direitos reservados.</span>
-      <span>{PHONE_DISPLAY} · Av. Silva Jardim, 2520, Batel, Curitiba/PR</span>
+      <span>{PHONE_DISPLAY} · Av. Silva Jardim, 2522, Batel, Curitiba/PR</span>
     </div>
   </div>
 </footer>'''
