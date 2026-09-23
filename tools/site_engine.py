@@ -86,7 +86,7 @@ UNITS = [
         "region": "Batel · Curitiba",
         "address": "Av. Silva Jardim, 2522 — Batel, Curitiba/PR",
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
-        "whatsapp": "554196960730",
+        "whatsapp": "5541997351758",
         "doctor": "Dra. Sandra Mara Hretzko", "cro": "CRO/PR 12411 · CLM/PR 3311",
         "img": "images/unidade-batel.webp",
         "maps_q": "Av.+Silva+Jardim,+2522,+Batel,+Curitiba,+PR",
