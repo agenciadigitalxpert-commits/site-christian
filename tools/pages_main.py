@@ -49,7 +49,7 @@ def build_home():
       <div class="hero-copy" data-reveal="left">
         <p class="eyebrow">Odontologia &amp; Harmonização Orofacial desde 2005</p>
         <h1>O sorriso que você imaginou existe e começa com uma avaliação.</h1>
-        <p class="lede">Implantes, ortodontia, facetas e harmonização facial com equipe multidisciplinar, tecnologia de ponta e acompanhamento humano em 5 unidades na região de Curitiba.</p>
+        <p class="lede">Implantes, ortodontia, facetas, harmonização facial, clareamento, restaurações, extrações, periodontia e endodontia com microscopia. Equipe multidisciplinar e tecnologia de ponta em 5 unidades na região de Curitiba.</p>
         <div class="hero-actions">
           <a class="btn btn-primary js-wa-picker" href="{WA_DEFAULT}" target="_blank" rel="noopener">Falar no WhatsApp</a>
           <a class="btn btn-outline" href="tratamentos.html">Ver tratamentos</a>
@@ -57,7 +57,8 @@ def build_home():
         <div class="stats">
           {stat("20+", "anos de atuação")}
           {stat("5", "unidades na região")}
-          {stat("30 mil+", "implantes realizados")}
+          {stat("45 mil+", "implantes realizados")}
+          {stat("80 mil+", "pacientes atendidos")}
         </div>
       </div>
       <div class="hero-media" data-reveal="right">
