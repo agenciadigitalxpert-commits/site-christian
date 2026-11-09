@@ -122,9 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const unitPickerOverlay = document.getElementById('unit-picker-overlay');
   const unitPickerClose = document.getElementById('unit-picker-close');
   let pendingWaMessage = '';
+  let pendingWaLocation = 'unknown';
 
-  const openUnitPicker = (message) => {
-    pendingWaMessage = message || 'Olá! Quero agendar uma avaliação.';
+  const openUnitPicker = (message, location) => {
+    pendingWaMessage = message || 'Olá, vim pelo site e quero agendar uma avaliação!';
+    pendingWaLocation = location || 'unknown';
     if (!unitPickerOverlay) return;
     unitPickerOverlay.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -146,7 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = btn.getAttribute('data-whatsapp');
       const name = btn.getAttribute('data-name');
       const text = `${pendingWaMessage} Unidade: ${name}.${utmSuffixForMessage()}`;
-      track('unit_selected', { unit: name, link_location: 'unit_picker' });
+      track('unit_selected', { unit: name, link_location: pendingWaLocation });
+      // A conversão (generate_lead) só dispara aqui, quando a pessoa escolhe a
+      // unidade e é de fato enviada ao WhatsApp — abrir a caixa não conta.
+      track('generate_lead', { lead_type: 'whatsapp', link_location: pendingWaLocation, unit: name });
       window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`, '_blank');
       closeUnitPicker();
     });
@@ -156,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       let message = '';
       try { message = decodeURIComponent(new URL(a.href).searchParams.get('text') || ''); } catch (err) { /* ignore */ }
-      openUnitPicker(message);
+      openUnitPicker(message, trackLocation(a));
     });
   });
 
@@ -309,7 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
       let waMessage = '';
       try { waMessage = decodeURIComponent(new URL(a.href).searchParams.get('text') || ''); } catch (err) { /* ignore */ }
       track('whatsapp_click', { link_location: location, link_text: linkText, whatsapp_message: waMessage });
-      track('generate_lead', { lead_type: 'whatsapp', link_location: location });
+      // Botões com seletor de unidade: o lead é contado na escolha da unidade.
+      if (!a.classList.contains('js-wa-picker')) {
+        track('generate_lead', { lead_type: 'whatsapp', link_location: location });
+      }
       return;
     }
     if (href.indexOf('tel:') === 0) {
