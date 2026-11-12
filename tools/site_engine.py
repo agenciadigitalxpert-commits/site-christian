@@ -106,6 +106,7 @@ UNITS = [
         "region": "Weissópolis · Pinhais",
         "address": "Av. Iraí, 1632 — loja 2 — Weissópolis, Pinhais/PR",
         "phone_display": PHONE_DISPLAY, "phone_tel": PHONE_TEL,
+        "whatsapp": "554197391634",
         "doctor": "Dr. Mário Hayashi Junior", "cro": "CRO/PR 17908",
         "img": "images/unidade-pinhais.webp",
         "maps_q": "Av.+Irai,+1632,+Weissopolis,+Pinhais,+PR",
