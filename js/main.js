@@ -5,13 +5,10 @@
    Funciona independente do GTM estar instalado: os eventos ficam na fila do
    dataLayer e são lidos assim que o container do GTM carregar (ver
    tools/site_engine.py -> GTM_CONTAINER_ID). Ao configurar o GA4 dentro do
-   GTM, cada canal tem seu próprio evento de conversão:
-   - "whatsapp_click": pessoa foi de fato enviada ao WhatsApp (nos botões com
-     seletor de unidade, só dispara depois de escolher a unidade; abrir a
-     caixa gera apenas "unit_picker_open").
-   - "phone_click": clique em telefone.
-   - "generate_lead": exclusivo do envio do formulário de contato.
-   Todos levam "link_location" indicando de que região da página veio o clique.
+   GTM, mapeie principalmente o evento "generate_lead" (recomendado pelo
+   Google para geração de leads) como conversão — ele dispara em todo clique
+   de WhatsApp, telefone ou envio de formulário, com "lead_type" indicando o
+   canal e "link_location" indicando de que região da página veio o clique.
    ========================================================================= */
 window.dataLayer = window.dataLayer || [];
 
@@ -126,13 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const unitPickerClose = document.getElementById('unit-picker-close');
   let pendingWaMessage = '';
   let pendingWaLocation = 'unknown';
-  let pendingWaLinkText = '';
 
-  const openUnitPicker = (message, location, linkText) => {
+  const openUnitPicker = (message, location) => {
     pendingWaMessage = message || 'Olá, vim pelo site e quero agendar uma avaliação!';
     pendingWaLocation = location || 'unknown';
-    pendingWaLinkText = linkText || '';
-    track('unit_picker_open', { link_location: pendingWaLocation, link_text: pendingWaLinkText });
     if (!unitPickerOverlay) return;
     unitPickerOverlay.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -155,9 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const name = btn.getAttribute('data-name');
       const text = `${pendingWaMessage} Unidade: ${name}.${utmSuffixForMessage()}`;
       track('unit_selected', { unit: name, link_location: pendingWaLocation });
-      // A conversão de WhatsApp só dispara aqui, quando a pessoa escolhe a
+      // A conversão (generate_lead) só dispara aqui, quando a pessoa escolhe a
       // unidade e é de fato enviada ao WhatsApp — abrir a caixa não conta.
-      track('whatsapp_click', { link_location: pendingWaLocation, link_text: pendingWaLinkText, whatsapp_message: pendingWaMessage, unit: name });
+      track('generate_lead', { lead_type: 'whatsapp', link_location: pendingWaLocation, unit: name });
       window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`, '_blank');
       closeUnitPicker();
     });
@@ -167,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       let message = '';
       try { message = decodeURIComponent(new URL(a.href).searchParams.get('text') || ''); } catch (err) { /* ignore */ }
-      openUnitPicker(message, trackLocation(a), (a.textContent || '').trim().slice(0, 80));
+      openUnitPicker(message, trackLocation(a));
     });
   });
 
@@ -316,16 +310,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkText = (a.textContent || '').trim().slice(0, 80);
 
     if (/api\.whatsapp\.com|wa\.me/.test(href)) {
-      // Botões com seletor de unidade são rastreados na escolha da unidade.
-      if (a.classList.contains('js-wa-picker')) return;
       appendUtmToWhatsAppHref(a);
       let waMessage = '';
       try { waMessage = decodeURIComponent(new URL(a.href).searchParams.get('text') || ''); } catch (err) { /* ignore */ }
       track('whatsapp_click', { link_location: location, link_text: linkText, whatsapp_message: waMessage });
+      // Botões com seletor de unidade: o lead é contado na escolha da unidade.
+      if (!a.classList.contains('js-wa-picker')) {
+        track('generate_lead', { lead_type: 'whatsapp', link_location: location });
+      }
       return;
     }
     if (href.indexOf('tel:') === 0) {
       track('phone_click', { link_location: location, phone_number: href.replace('tel:', '') });
+      track('generate_lead', { lead_type: 'phone', link_location: location });
       return;
     }
     if (href.indexOf('mailto:') === 0) {
