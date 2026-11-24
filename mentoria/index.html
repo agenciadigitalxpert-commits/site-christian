@@ -418,7 +418,7 @@ summary::-webkit-details-marker{display:none}
   estiver preenchido, também envia os dados (JSON) para o CRM.
 */
 (function () {
-  var ENDPOINT = '';            // URL do webhook do CRM (RD, Kommo, Make, Zapier...). Vazio = só WhatsApp.
+  var ENDPOINT = '';            // URL do Apps Script da planilha de candidaturas. Vazio = só WhatsApp.
   var WHATSAPP = '5541996962223'; // número que recebe as candidaturas
   var form = document.getElementById('lead-form');
   var sucesso = document.getElementById('lead-sucesso');
@@ -461,10 +461,14 @@ summary::-webkit-details-marker{display:none}
       'Maior gargalo: ' + rotulo('f-gargalo');
 
     if (ENDPOINT) {
+      dados.clinicas = rotulo('f-clinicas');
+      dados.faturamento = rotulo('f-fat');
+      dados.gargalo = rotulo('f-gargalo');
       try {
         fetch(ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(dados),
           keepalive: true
         }).catch(function () {});
