@@ -41,6 +41,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '''
 
 
+# CRM Lavin.IA: captura os formulários do site como lead no CRM.
+# Fica fora da LP da mentoria (/mentoria), que não é gerada por este motor.
+LAVINIA_FORMS_SRC = "https://crm.agentelavinia.com.br/f.js?k=lvf_b210759e52cf4d0dbea3bf2413e2d25e"
+
+
+def lavinia_snippet():
+    if not LAVINIA_FORMS_SRC:
+        return ""
+    return f'<script async src="{LAVINIA_FORMS_SRC}"></script>\n'
+
+
 def gtm_body_snippet():
     if not GTM_CONTAINER_ID:
         return ""
@@ -481,7 +492,7 @@ def page(path, title, description, active, body, root="", json_ld_list=None,
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>window.dataLayer = window.dataLayer || [];</script>
-{gtm_head_snippet()}<title>{title}</title>
+{gtm_head_snippet()}{lavinia_snippet()}<title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="{robots}">
